@@ -38,6 +38,17 @@ public class Address {
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
+	
+	public Address(String countryCode, String city, String zip, String street, String houseNumber, Double latitude, Double longitude) {
+		super();
+		this.countryCode = countryCode;
+		this.city = city;
+		this.zip = zip;
+		this.street = street;
+		this.houseNumber = houseNumber;
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
 
 	public Long getAddressId() {
 		return addressId;
