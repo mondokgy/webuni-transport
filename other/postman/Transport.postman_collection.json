@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "5110b70b-a0e7-4605-b468-d2a82c2c5aa6",
+		"name": "Transport",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "address",
+			"item": [
+				{
+					"name": "allAddresses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQWRtaW4iLCJhdXRoIjpbIkFkZHJlc3NNYW5hZ2VyIiwiVHJhbnNwb3J0TWFuYWdlciJdLCJpc3MiOiJUcmFuc3BvcnRBcHAiLCJleHAiOjE2NDEwNzE4NTN9.F38KnjUYwfVNb4JSBejTxuh9mfLYeo0bKAtlf-yYWX8AE0L6dnJVmAOW_BRFJKFeAuag4Eh0zxsE_1S2IQ8gjw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/addresses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allAddressBy Example",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQWRtaW4iLCJhdXRoIjpbIkFkZHJlc3NNYW5hZ2VyIiwiVHJhbnNwb3J0TWFuYWdlciJdLCJpc3MiOiJUcmFuc3BvcnRBcHAiLCJleHAiOjE2NDEwNzE4NTN9.F38KnjUYwfVNb4JSBejTxuh9mfLYeo0bKAtlf-yYWX8AE0L6dnJVmAOW_BRFJKFeAuag4Eh0zxsE_1S2IQ8gjw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"countryCode\": \"HU\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/addresses/search?page=0&size=7&sort=city,asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"addresses",
+								"search"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "7"
+								},
+								{
+									"key": "sort",
+									"value": "city,asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "oneAddress",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQWRtaW4iLCJhdXRoIjpbIkFkZHJlc3NNYW5hZ2VyIiwiVHJhbnNwb3J0TWFuYWdlciJdLCJpc3MiOiJUcmFuc3BvcnRBcHAiLCJleHAiOjE2NDEwNzE4NTN9.F38KnjUYwfVNb4JSBejTxuh9mfLYeo0bKAtlf-yYWX8AE0L6dnJVmAOW_BRFJKFeAuag4Eh0zxsE_1S2IQ8gjw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/addresses/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"addresses",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQWRtaW4iLCJhdXRoIjpbIkFkZHJlc3NNYW5hZ2VyIiwiVHJhbnNwb3J0TWFuYWdlciJdLCJpc3MiOiJUcmFuc3BvcnRBcHAiLCJleHAiOjE2NDEwNzE4NTN9.F38KnjUYwfVNb4JSBejTxuh9mfLYeo0bKAtlf-yYWX8AE0L6dnJVmAOW_BRFJKFeAuag4Eh0zxsE_1S2IQ8gjw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n         \"countryCode\": \"DE\",\r\n        \"city\": \"Füzesgyarmat\",\r\n        \"street\": \"Petőfi u.\",\r\n        \"zip\": \"1194\",\r\n        \"houseNumber\": \"1\",\r\n        \"latitude\": 49.234,\r\n        \"longitude\": 54.1323   \r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/addresses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modifyAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQWRtaW4iLCJhdXRoIjpbIkFkZHJlc3NNYW5hZ2VyIiwiVHJhbnNwb3J0TWFuYWdlciJdLCJpc3MiOiJUcmFuc3BvcnRBcHAiLCJleHAiOjE2NDEwNzE4NTN9.F38KnjUYwfVNb4JSBejTxuh9mfLYeo0bKAtlf-yYWX8AE0L6dnJVmAOW_BRFJKFeAuag4Eh0zxsE_1S2IQ8gjw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"addressId\": 3,\r\n    \"countryCode\": \"DE\",\r\n    \"city\": \"Budapest\",\r\n    \"zip\": \"1119\",\r\n    \"street\": \"Kossuth utca\",\r\n    \"houseNumber\": \"10\",\r\n    \"type\": \"telephely\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/addresses/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"addresses",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQWRtaW4iLCJhdXRoIjpbIkFkZHJlc3NNYW5hZ2VyIiwiVHJhbnNwb3J0TWFuYWdlciJdLCJpc3MiOiJUcmFuc3BvcnRBcHAiLCJleHAiOjE2NDEwNzE4NTN9.F38KnjUYwfVNb4JSBejTxuh9mfLYeo0bKAtlf-yYWX8AE0L6dnJVmAOW_BRFJKFeAuag4Eh0zxsE_1S2IQ8gjw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/addresses/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"addresses",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login Copy",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"userAdmin\",\r\n    \"password\": \"pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transportPlan",
+			"item": [
+				{
+					"name": "registringDelay",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQWRtaW4iLCJhdXRoIjpbIkFkZHJlc3NNYW5hZ2VyIiwiVHJhbnNwb3J0TWFuYWdlciJdLCJpc3MiOiJUcmFuc3BvcnRBcHAiLCJleHAiOjE2NDEwNzE4NTN9.F38KnjUYwfVNb4JSBejTxuh9mfLYeo0bKAtlf-yYWX8AE0L6dnJVmAOW_BRFJKFeAuag4Eh0zxsE_1S2IQ8gjw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"milestoneId\":10,\r\n    \"delayMin\":45\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/transportPlans/1/delay",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"transportPlans",
+								"1",
+								"delay"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

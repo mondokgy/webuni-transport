@@ -3,6 +3,7 @@ package hu.webuni.transport.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -36,35 +37,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
 			.passwordEncoder(passwordEncoder())
-			.withUser("userAddress").authorities("AdressManager").password(passwordEncoder().encode("pass"))
+			.withUser("userAddress").authorities("AddressManager").password(passwordEncoder().encode("pass"))
 			.and()
-			.withUser("userTransport").authorities("TransportManager").password(passwordEncoder().encode("pass"));
+			.withUser("userTransport").authorities("TransportManager").password(passwordEncoder().encode("pass"))
+			.and()
+			.withUser("userAdmin").authorities("AddressManager","TransportManager").password(passwordEncoder().encode("pass"));
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-//			.httpBasic()
-//			.and()
 			.csrf().disable()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and()
 			.authorizeRequests()
-			.antMatchers("/api/login/**").permitAll();
-		//	.anyRequest().authenticated();
+			.antMatchers("/api/login/**").permitAll()
+			.anyRequest().authenticated();
 		
 		http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 		
 	}
-
-
 
 	@Override
 	@Bean
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
-	
-	
-	
+
 }

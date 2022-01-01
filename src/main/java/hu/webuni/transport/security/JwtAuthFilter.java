@@ -20,9 +20,9 @@ public class JwtAuthFilter extends OncePerRequestFilter{
 
 	private static final String AUTHORIZATION = "Authorization";
 	private static final String BEARER = "Bearer ";
-//	@Autowired
-//	private JwtService jwtService;
-//
+	@Autowired
+	private JwtService jwtService;
+
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
@@ -30,12 +30,12 @@ public class JwtAuthFilter extends OncePerRequestFilter{
 		String authHeader = request.getHeader(AUTHORIZATION);
 		if(authHeader != null && authHeader.startsWith(BEARER)) {
 			String jwtToken = authHeader.substring(BEARER.length());
-//			UserDetails principal = jwtService.parseJwt(jwtToken);
-//			
-//			UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(principal, null, principal.getAuthorities());
-//			authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-//			
-//			SecurityContextHolder.getContext().setAuthentication(authentication);
+			UserDetails principal = jwtService.parseJwt(jwtToken);
+			
+			UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(principal, null, principal.getAuthorities());
+			authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+			
+			SecurityContextHolder.getContext().setAuthentication(authentication);
 		}
 		
 		filterChain.doFilter(request, response);

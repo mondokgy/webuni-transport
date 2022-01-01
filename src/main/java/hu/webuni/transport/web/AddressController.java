@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -67,6 +68,7 @@ public class AddressController {
 	}
 	
 	@PostMapping
+	@PostAuthorize("hasAuthority('AddressManager')")
 	public AddressDto createAddress(@Valid @RequestBody AddressDto addressDto) {
 		
 		log.debug("Address restapi controller, /api/addresses, post, createAddress start");		
@@ -84,6 +86,7 @@ public class AddressController {
 	}
 	
 	@PutMapping("/{id}")
+	@PostAuthorize("hasAuthority('AddressManager')")
 	public ResponseEntity<AddressDto> modifyAddress(@PathVariable Long id, @Valid @RequestBody AddressDto addressDto) {
 		
 		log.debug("Address restapi controller, /{id}, put, modifyAddress start");
@@ -101,6 +104,7 @@ public class AddressController {
 	}
 	
 	@DeleteMapping("/{id}")
+	@PostAuthorize("hasAuthority('AddressManager')")
 	public ResponseEntity<AddressDto> deleteAddress(@PathVariable Long id) {
 		
 		log.debug("Address restapi controller, /api/addresses/\"+id+\", delete, deleteAddress start");

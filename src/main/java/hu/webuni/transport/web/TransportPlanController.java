@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +29,7 @@ public class TransportPlanController {
 	@Autowired
 	private TransportPlanService tpService;
 	
+	@PostAuthorize("hasAuthority('TransportManager')")
 	@PostMapping("/{id}/delay")
 	public void registringDelay(@PathVariable long id, @Valid @RequestBody DelayDto delayDto) {
 		
@@ -46,8 +48,6 @@ public class TransportPlanController {
 			log.debug("InvalidTransportPlanAndMilestonePairException, message: "+e.getMessage());	
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
 		}
-		
-		
 		
 		log.debug("TransportPlan restapi controller, /api/transportPlans, post, registringDelay end");
 		
